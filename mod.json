@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "name": "OffhandUnlocker",
+    "version": "1.0.0",
+    "author": "OpenSourceDeveloper",
+    "description": "A featureless, clean-slate client dll that forces offhand inventory unlocking."
+  }
+}
+
