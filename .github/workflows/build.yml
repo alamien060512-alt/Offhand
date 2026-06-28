@@ -1,0 +1,28 @@
+name: Build C++ DLL Client
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Repository Code
+      uses: actions/checkout@v4
+
+    - name: Configure CMake Build Systems
+      run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+
+    - name: Compile Project Output Binary Artifacts
+      run: cmake --build build --config Release
+
+    - name: Upload Compiled Client DLL Output
+      uses: actions/upload-artifact@v4
+      with:
+        name: OffhandClient-Release-DLL
+        path: build/Release/OffhandClient.dll
+
